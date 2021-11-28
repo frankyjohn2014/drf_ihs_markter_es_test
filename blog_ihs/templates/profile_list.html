@@ -1,0 +1,6 @@
+{% load rest_framework %}
+<div><h1><center>Top-10-authors</center></h1></div>
+{% for profile in profiles  %}
+    <h3><div><center>{{ profile }}</center></div></h3>
+{% endfor %}
+

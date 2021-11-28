@@ -1,0 +1,40 @@
+version: "3"
+
+services:
+  esearch1:
+    restart: always
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.14.0
+    container_name: esearch1
+    environment:
+      - node.name=esearch1
+      - cluster.name=es-docker-cluster
+      - discovery.seed_hosts=esearch1
+      - cluster.initial_master_nodes=esearch1
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    ports:
+      - 9200:9200
+    networks:
+      - djangonetwork
+  web:
+    build: .
+    privileged: true
+    # command: /usr/local/bin/gunicorn app.wsgi:application -w 2 -b :8000
+    volumes:
+      - .:/app
+    ports:
+      - 8000:8000
+    env_file:
+      - docker-compose.env 
+    networks:
+      - djangonetwork 
+    depends_on:
+      - esearch1
+networks:
+  djangonetwork:
+    driver: bridge
+
+      
