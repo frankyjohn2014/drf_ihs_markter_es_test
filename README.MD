@@ -11,10 +11,17 @@
 <ol start="2">
 <li class="has-line-data" data-line-start="10" data-line-end="11">Создаём пользователей и статьи.</li>
 </ol>
+<<<<<<< HEAD
 <pre><code class="has-line-data" data-line-start="12" data-line-end="14" class="language-sh">docker-compose <span class="hljs-built_in">exec</span> web python manage.py create_db 
 </code></pre>
 <p class="has-line-data" data-line-start="14" data-line-end="15">3.Чтобы создать и заполнить индекс и сопоставление Elasticsearch, используем</p>
 <pre><code class="has-line-data" data-line-start="16" data-line-end="18" class="language-sh">docker-compose <span class="hljs-built_in">exec</span> web python manage.py search_index --rebuild  
+=======
+<pre><code class="has-line-data" data-line-start="12" data-line-end="14" class="language-sh">docker-compose <span class="hljs-built_in">exec</span> web manage.py python manage.py create_db 
+</code></pre>
+<p class="has-line-data" data-line-start="14" data-line-end="15">3.Чтобы создать и заполнить индекс и сопоставление Elasticsearch, используем</p>
+<pre><code class="has-line-data" data-line-start="16" data-line-end="18" class="language-sh">docker-compose <span class="hljs-built_in">exec</span> web manage.py python manage.py search_index --rebuild  
+>>>>>>> c885bc3a9f189b52534bebaba8787ce10760e9af
 </code></pre>
 <ol start="4">
 <li class="has-line-data" data-line-start="18" data-line-end="20">
