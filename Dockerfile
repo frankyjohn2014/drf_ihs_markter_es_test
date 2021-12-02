@@ -11,6 +11,7 @@ COPY . /app/
 RUN pip install -r requirements.txt
 RUN python manage.py makemigrations
 RUN python manage.py migrate 
+RUN python manage.py migrate ihs_blog
 # RUN python manage.py search_index --rebuild 
 # RUN python manage.py create_db 
 
